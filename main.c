@@ -35,15 +35,13 @@ int main(int argc __attribute__((unused)), char *argv[])
 		if (builtin)
 		{
 			prev_status = builtin(inp_words, prev_status, argv[0]);
+			free_memory_pp(inp_words);
+			free(imput);
+			continue;
 		}
 		else
-		{
 			prev_status = run(inp_words, argv[0]);
-		}
-		if (inp_words)
-		{
 		free_memory_pp(inp_words);
-		}
 		free(imput);
 	}
 	return (0);
