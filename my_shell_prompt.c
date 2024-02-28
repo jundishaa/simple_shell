@@ -17,11 +17,10 @@ void  new_prompt(void)
 	j = _getenv("NAME");
 
 if (!i || !j)
-    {
-        perror("Environment variables not set");
-        print("$ ");
-        return;
-    }
+{
+	perror("Environment variables not set");
+	print("$ ");
+}
 	w = _strlen(i);
 	x = _strlen(j);
 	y = _strlen(k);
