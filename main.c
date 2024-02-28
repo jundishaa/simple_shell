@@ -9,7 +9,7 @@ int main(int argc __attribute__((unused)), char *argv[])
 {
 	int (*builtin)(char **, int, char *);
 	char **inp_words;
-	char *imput = NULL;
+	char *imput;
 	size_t length = 0;
 	ssize_t read_bytes;
 	int prev_status = 0;
@@ -20,6 +20,8 @@ int main(int argc __attribute__((unused)), char *argv[])
 			new_prompt();
 		read_bytes = getline(&imput, &length, stdin);
 		if (read_bytes == -1)
+			return (1);
+		if (*imput == '\n' || *imput == '\0')
 		{
 			free(imput);
 			continue;
